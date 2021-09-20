@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0547762, 0.096011, 0.0851634 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.854902, 0.12549, 0.12549, 1 )
+
+[node name="Fruit" type="RigidBody"]
+mass = 0.1
+axis_lock_linear_z = true
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418626, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Model" type="CSGSphere" parent="."]
+radius = 0.1
+material = SubResource( 2 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Model"]
+operation = 2
+
+[node name="CSGBox" type="CSGBox" parent="Model/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0769423, 0, 0 )
+width = 0.138905
+height = 0.22152
+depth = 0.290432

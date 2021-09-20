@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/fruits/fruit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/plain_texture.png" type="Texture" id=2]
+
+[node name="Main" type="Spatial"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.11662 )
+current = true
+fov = 46.3525
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Fruit" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441011, 0 )
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -1 )
+modulate = Color( 0.341176, 0.243137, 0.160784, 1 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
