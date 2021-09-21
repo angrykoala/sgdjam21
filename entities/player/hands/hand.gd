@@ -1,4 +1,4 @@
-extends KinematicBody
+extends RigidBody
 
 enum HAND {
 	LEFT,
@@ -9,7 +9,7 @@ export var speed=1
 export(HAND) var hand=HAND.RIGHT
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = Vector3()
 	match hand:
 		HAND.LEFT:
@@ -23,5 +23,6 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_pressed("move_rhand_left"):
 				direction.x -= 1
 
-	var velocity = direction.normalized() * speed * 0.1
-	move_and_collide(velocity)
+	var velocity = direction.normalized() * speed
+	add_central_force(velocity)
+

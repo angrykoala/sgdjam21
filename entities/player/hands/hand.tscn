@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/human_hand.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://entities/player/hands/hand.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.827451, 0.172549, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.227134, 0.102455, 0.292137 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.266729, 0.127359, 0.0910815 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.308485, 0.277093, 0.0784437 )
+
+[node name="Hand" type="RigidBody"]
+mass = 10.0
+physics_material_override = SubResource( 3 )
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 10.0
+script = ExtResource( 2 )
+speed = 250
+
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.374631 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0492311, -0.0566666 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164192, 0.161493, -0.641503 )
+shape = SubResource( 6 )
