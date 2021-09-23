@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://entities/fruits/fruit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/player/hands/left_hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main.gd" type="Script" id=4]
 [ext_resource path="res://entities/bounds/bounds.tscn" type="PackedScene" id=5]
-[ext_resource path="res://entities/player/hands/hand.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/player/hands/right_hand.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/theme.mp3" type="AudioStream" id=7]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=8]
+[ext_resource path="res://entities/fruits/half_banana.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
@@ -18,32 +19,28 @@ __meta__ = {
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
 current = true
-fov = 46.3525
+fov = 50.1628
 
 [node name="FruitSpawner" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52971, 0 )
-fruit = ExtResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9189, 0 )
+fruit = ExtResource( 9 )
 min_spawn_force = Vector2( -8, -2 )
 max_spawn_force = Vector2( 8, 0 )
 
 [node name="Bounds" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.882837, 0 )
 script = ExtResource( 8 )
 
-[node name="Hands" type="Spatial" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496298, 0.234644 )
+[node name="LeftHand" parent="Player" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.966338, 0, 0.331332 )
 
-[node name="LeftHand" parent="Player/Hands" instance=ExtResource( 6 )]
-transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-hand = 0
-
-[node name="RightHand" parent="Player/Hands" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959708, 0, 0 )
+[node name="RightHand" parent="Player" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06688, 0, 0 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, -1.0365 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-autoplay = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Platano-1_1Abajo.obj-d39a169beef68cfc47f8d07854e21c91.mesh"
+
+[deps]
+
+files=[ "res://.import/Platano-1_1Abajo.obj-d39a169beef68cfc47f8d07854e21c91.mesh" ]
+
+source_file="res://assets/Platano/Platano-1_1Abajo.obj"
+dest_files=[ "res://.import/Platano-1_1Abajo.obj-d39a169beef68cfc47f8d07854e21c91.mesh", "res://.import/Platano-1_1Abajo.obj-d39a169beef68cfc47f8d07854e21c91.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

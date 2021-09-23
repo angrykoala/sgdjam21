@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Limon-1-1.obj-c023258eef36ef0c58eb599c8cda097a.mesh"
+
+[deps]
+
+files=[ "res://.import/Limon-1-1.obj-c023258eef36ef0c58eb599c8cda097a.mesh" ]
+
+source_file="res://assets/Limoncin/Limon-1-1.obj"
+dest_files=[ "res://.import/Limon-1-1.obj-c023258eef36ef0c58eb599c8cda097a.mesh", "res://.import/Limon-1-1.obj-c023258eef36ef0c58eb599c8cda097a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

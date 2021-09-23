@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Limoncin/Limon-1-2.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/Limoncin/Limon-Text.png" type="Texture" id=2]
+[ext_resource path="res://entities/fruits/fruit.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0702721, 0.108915, 0.0334935 )
+
+[sub_resource type="SphereShape" id=3]
+radius = 0.0513958
+
+[node name="HalfLemon" instance=ExtResource( 3 )]
+
+[node name="Mesh" type="MeshInstance" parent="." index="0"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0296084 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0441413 )
+shape = SubResource( 3 )
