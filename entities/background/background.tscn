@@ -1,0 +1,31 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Fondo/Fondo-B-TextB.png" type="Texture" id=1]
+[ext_resource path="res://assets/Fondo/Fondo-Tornillos-TextT.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fondo/Fondo-A-TextA.png" type="Texture" id=3]
+[ext_resource path="res://assets/Fondo/Fondo-A.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/Fondo/Fondo-Tornillos.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/Fondo/Fondo-B.obj" type="ArrayMesh" id=6]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[node name="Background" type="Spatial"]
+
+[node name="Fondo-A" type="MeshInstance" parent="."]
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
+[node name="Fondo-B" type="MeshInstance" parent="."]
+mesh = ExtResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="Fondo-Tornillos" type="MeshInstance" parent="."]
+mesh = ExtResource( 5 )
+material/0 = SubResource( 3 )

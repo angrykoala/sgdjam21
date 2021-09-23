@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Fondo-A.obj-67acf9e58cd7b10eab90fb05743de9c5.mesh"
+
+[deps]
+
+files=[ "res://.import/Fondo-A.obj-67acf9e58cd7b10eab90fb05743de9c5.mesh" ]
+
+source_file="res://assets/Fondo/Fondo-A.obj"
+dest_files=[ "res://.import/Fondo-A.obj-67acf9e58cd7b10eab90fb05743de9c5.mesh", "res://.import/Fondo-A.obj-67acf9e58cd7b10eab90fb05743de9c5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
