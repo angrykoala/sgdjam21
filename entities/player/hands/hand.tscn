@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/player/hands/hand.gd" type="Script" id=2]
 [ext_resource path="res://assets/ManoRobotica/Manos-Robotica-V1.fbx" type="PackedScene" id=3]
@@ -9,7 +9,7 @@
 extents = Vector3( 0.227134, 0.102455, 0.389037 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.308485, 0.277093, 0.0784437 )
+extents = Vector3( 0.193465, 0.277093, 0.0784437 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.0672434, 0.134334, 0.209045 )
@@ -21,7 +21,10 @@ radius = 0.167118
 radius = 0.133414
 height = 0.757178
 
-[node name="RightHand" type="RigidBody"]
+[sub_resource type="SphereShape" id=7]
+radius = 0.377523
+
+[node name="Hand" type="RigidBody"]
 mass = 10.0
 physics_material_override = SubResource( 1 )
 axis_lock_linear_y = true
@@ -32,20 +35,29 @@ axis_lock_angular_z = true
 linear_damp = 10.0
 script = ExtResource( 2 )
 speed = 250
+hand = 0
 
-[node name="LeftHandMesh" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, -5.24537e-08, 0, 5.24537e-08, 0.6, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="PalmCollision" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.348757, -0.374631 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164192, 0.601997, -0.810495 )
+[node name="FingersCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601693, -0.81 )
 shape = SubResource( 3 )
 
-[node name="CollisionShape4" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322803, 0.609071, -0.5479 )
+[node name="LeftHandMesh" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.6, 0, 0, 0, 0.6, -5.24537e-08, 0, 5.24537e-08, 0.6, 0, 0, 0 )
+
+[node name="RightHandMesh" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0 )
+visible = false
+
+[node name="ThumbCollisionLeft" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294705, 0.609071, -0.5479 )
+shape = SubResource( 4 )
+
+[node name="ThumbCollisionRight" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.295, 0.609, -0.548 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
@@ -59,3 +71,12 @@ shape = SubResource( 6 )
 [node name="CollisionShape6" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224036, 0.368531, -0.492353 )
 shape = SubResource( 6 )
+
+[node name="CaughtArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.584273, -0.450256 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CaughtArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.047759, 0 )
+shape = SubResource( 7 )
+
+[node name="Fruits" type="Spatial" parent="."]
