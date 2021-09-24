@@ -80,3 +80,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.047759, 0 )
 shape = SubResource( 7 )
 
 [node name="Fruits" type="Spatial" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_tween_all_completed"]
