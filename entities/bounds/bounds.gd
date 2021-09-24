@@ -1,7 +1,8 @@
 extends Area
 
 func _on_body_exited(body: Node) -> void:
-	despawn(body)
+	if body.is_in_group("fruit"):
+		despawn(body)
 
 
 func despawn(node: Node)->void:

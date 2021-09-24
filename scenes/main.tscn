@@ -5,7 +5,7 @@
 [ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main.gd" type="Script" id=4]
 [ext_resource path="res://entities/bounds/bounds.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/theme.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/theme.ogg" type="AudioStream" id=6]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=8]
 [ext_resource path="res://entities/fruits/half_banana.tscn" type="PackedScene" id=9]
 
@@ -39,8 +39,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.4 )
 hand = 1
 
+[node name="ClapCenter" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26878, 0 )
+
 [node name="Background" parent="." instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, -1.0365 )
+transform = Transform( 5, 0, 0, 0, -2.62268e-07, -5, 0, 6, -2.18557e-07, 0, 0, -2 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
+autoplay = true
