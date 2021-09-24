@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/manzana-1-4.obj-f7606c21d93ea18e1306782126b0ba1d.mesh"
+
+[deps]
+
+files=[ "res://.import/manzana-1-4.obj-f7606c21d93ea18e1306782126b0ba1d.mesh" ]
+
+source_file="res://assets/Manzana/manzana-1-4.obj"
+dest_files=[ "res://.import/manzana-1-4.obj-f7606c21d93ea18e1306782126b0ba1d.mesh", "res://.import/manzana-1-4.obj-f7606c21d93ea18e1306782126b0ba1d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
