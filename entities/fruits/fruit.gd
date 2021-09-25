@@ -59,12 +59,12 @@ func _ready() -> void:
 	show_fruit_quadrant(visibles)
 
 func show_fruit_quadrant(visibles_):
-	
+
 	for cuarto in range(1,5):
 		var node=get_node(str(cuarto)+"-4")
 		if node!=null:
-			node.visible=visibles_[cuarto-1]		
-		
+			node.visible=visibles_[cuarto-1]
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
