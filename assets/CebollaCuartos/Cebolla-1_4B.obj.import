@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Cebolla-1_4B.obj-bc657057f256d857d85b5e51b99f8693.mesh"
+
+[deps]
+
+files=[ "res://.import/Cebolla-1_4B.obj-bc657057f256d857d85b5e51b99f8693.mesh" ]
+
+source_file="res://assets/CebollaCuartos/Cebolla-1_4B.obj"
+dest_files=[ "res://.import/Cebolla-1_4B.obj-bc657057f256d857d85b5e51b99f8693.mesh", "res://.import/Cebolla-1_4B.obj-bc657057f256d857d85b5e51b99f8693.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
