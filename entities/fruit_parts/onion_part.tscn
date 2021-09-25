@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/fruit_parts/fruit_part.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/CebollaCuartos/Cebolla-1_4A.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/CebollaCuartos/Cebolla-Text.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.36537, 0.389834, 0.678218 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.354654, 0.543554, 0.185091 )
+
+[node name="OnionPart" instance=ExtResource( 1 )]
+fruit_name = "onion"
+
+[node name="Mesh" type="MeshInstance" parent="." index="0"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0426557, -0.0664639 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="." index="2"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.116677, -0.0188838 )
+shape = SubResource( 3 )
