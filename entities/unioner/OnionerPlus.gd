@@ -20,6 +20,10 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	#test()
+	# print(frankenfruits)
+func test():
 	var ingredientes={"Manzana":6,"Naranja":9,"Cebolla":0}
 
 	var texto="Con"
@@ -29,8 +33,8 @@ func _ready():
 	print(texto)
 	
 	var frankenfruits=create_franken_fruits(ingredientes)
-	# print(frankenfruits)
-
+	
+	
 func create_franken_fruits(part_list):
 	var frankenfruits=[]
 	
@@ -151,6 +155,9 @@ func suficientes_ingredientes_para_combo(combo,part_list):
 			if combo[ingrediente]>part_list[ingrediente]:
 				suficientes=false
 				break
+		else:
+			suficientes=false
+			break
 	
 	return suficientes
 		
