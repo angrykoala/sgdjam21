@@ -13,7 +13,7 @@ extents = Vector3( 0.184032, 0.0755778, 0.114054 )
 [node name="ApplePart" instance=ExtResource( 1 )]
 fruit_name = "apple"
 
-[node name="Manzana-1_4A" type="MeshInstance" parent="." index="0"]
+[node name="Mesh" type="MeshInstance" parent="." index="0"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 2 )
 material/0 = SubResource( 1 )

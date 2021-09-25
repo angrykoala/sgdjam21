@@ -24,7 +24,7 @@ current = true
 fov = 50.1628
 
 [node name="FruitSpawner" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9189, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4813, 0 )
 fruits = [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 min_spawn_force = Vector2( -8, -2 )
 max_spawn_force = Vector2( 8, 0 )

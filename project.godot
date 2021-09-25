@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 Utils="*res://autoload/utils.gd"
 
+[debug]
+
+settings/fps/force_fps=120
+
 [input]
 
 move_lhand_left={
