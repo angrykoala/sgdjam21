@@ -81,86 +81,123 @@ surfaces/0 = {
 script = ExtResource( 14 )
 
 [node name="Manzana" type="Spatial" parent="."]
+visible = false
 
 [node name="Manzana-1_4A" type="MeshInstance" parent="Manzana"]
+visible = false
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 2 )
 
 [node name="Manzana-1_4AA" type="MeshInstance" parent="Manzana"]
+visible = false
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 2 )
 
 [node name="Manzana-1_4B" type="MeshInstance" parent="Manzana"]
+visible = false
 mesh = ExtResource( 9 )
 material/0 = ExtResource( 2 )
 
 [node name="Manzana-1_4BB" type="MeshInstance" parent="Manzana"]
+visible = false
 mesh = ExtResource( 5 )
 material/0 = ExtResource( 2 )
 
 [node name="Limon" type="Spatial" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+visible = false
 
 [node name="Limon-1_4A" type="MeshInstance" parent="Limon"]
+visible = false
 mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="Limon-1_4AA" type="MeshInstance" parent="Limon"]
+visible = false
 mesh = SubResource( 2 )
 material/0 = ExtResource( 3 )
 
 [node name="Limon-1_4B" type="MeshInstance" parent="Limon"]
+visible = false
 mesh = SubResource( 3 )
 material/0 = ExtResource( 3 )
 
 [node name="Limon-1_4BB" type="MeshInstance" parent="Limon"]
+visible = false
 mesh = SubResource( 4 )
 material/0 = ExtResource( 3 )
 
 [node name="Naranja" type="Spatial" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+visible = false
 
 [node name="Naranja-1_4A" type="MeshInstance" parent="Naranja"]
+visible = false
 mesh = ExtResource( 11 )
 material/0 = ExtResource( 1 )
 
 [node name="Naranja-1_4AA" type="MeshInstance" parent="Naranja"]
+visible = false
 mesh = ExtResource( 7 )
 material/0 = ExtResource( 1 )
 
 [node name="Naranja-1_4B" type="MeshInstance" parent="Naranja"]
+visible = false
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 1 )
 
 [node name="Naranja-1_4BB" type="MeshInstance" parent="Naranja"]
+visible = false
 mesh = ExtResource( 10 )
 material/0 = ExtResource( 1 )
 
 [node name="Cebolla" type="Spatial" parent="."]
+visible = false
 
 [node name="Cebolla-1_4A" type="MeshInstance" parent="Cebolla"]
+visible = false
 mesh = ExtResource( 15 )
 material/0 = ExtResource( 13 )
 
 [node name="Cebolla-1_4AA" type="MeshInstance" parent="Cebolla"]
+visible = false
 mesh = ExtResource( 17 )
 material/0 = ExtResource( 13 )
 
 [node name="Cebolla-1_4B" type="MeshInstance" parent="Cebolla"]
+visible = false
 mesh = ExtResource( 16 )
 material/0 = ExtResource( 13 )
 
 [node name="Cebolla-1_4BB" type="MeshInstance" parent="Cebolla"]
+visible = false
 mesh = ExtResource( 18 )
 material/0 = ExtResource( 13 )
 
 [node name="Platano" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5631, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+visible = false
 
-[node name="Platano-1_1Abajo" type="MeshInstance" parent="Platano"]
+[node name="Platano-1_4AA" type="MeshInstance" parent="Platano"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638848, -0.257316, 0 )
+visible = false
 mesh = ExtResource( 19 )
 material/0 = ExtResource( 12 )
 
-[node name="Platano-1_1Arriba" type="MeshInstance" parent="Platano"]
+[node name="Platano-1_4A" type="MeshInstance" parent="Platano"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638848, -0.257316, 0 )
+visible = false
+mesh = ExtResource( 20 )
+material/0 = ExtResource( 12 )
+
+[node name="Platano-1_4BB" type="MeshInstance" parent="Platano"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.635503, -0.257316, 0 )
+visible = false
+mesh = ExtResource( 19 )
+material/0 = ExtResource( 12 )
+
+[node name="Platano-1_4B" type="MeshInstance" parent="Platano"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.635503, -0.257316, 0 )
+visible = false
 mesh = ExtResource( 20 )
 material/0 = ExtResource( 12 )
