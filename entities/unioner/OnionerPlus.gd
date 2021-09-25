@@ -13,9 +13,11 @@ export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
 #Bananja
 #Manana
 
+var rng = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var ingredientes={"Manzana":6,"Naranja":7,"Cebolla":2}
+	var ingredientes={"Manzana":6,"Naranja":9,"Cebolla":4}
 
 	var texto="Con"
 	for ingrediente in ingredientes:
@@ -33,11 +35,15 @@ func create_franken_fruits(part_list):
 	
 	for fruta in part_list:
 		ingredientes=ingredientes+part_list[fruta]
-		
-	while ingredientes>=4:
+	
+	# Let's find a known full combo
+	var posibilidad_de_combos=true
+	while ingredientes>=4 and posibilidad_de_combos:
 		for combo in combos:
+			posibilidad_de_combos=false
 			var repetidos=0
 			while suficientes_ingredientes_para_combo(combos[combo][0],part_list):
+				posibilidad_de_combos=true
 				repetidos=repetidos+1
 	
 				frankenfruits.append(combo)
@@ -46,10 +52,67 @@ func create_franken_fruits(part_list):
 					var cantidad=combos[combo][0][ingrediente]
 					part_list[ingrediente]=part_list[ingrediente]-cantidad
 					ingredientes=ingredientes-cantidad
+
 			if repetidos>0:
 				print(str(repetidos)+"x"+combo+": ("+str(combos[combo][1])+" puntos)")
-	return frankenfruits
 	
+	# Any fruit part is still available?
+	while ingredientes>0:
+		var frutilla={}
+		var trozos_frutilla=0
+		
+		for fruta in part_list:
+			var trozos=rng.randi_range(0,part_list[fruta])
+			frutilla[fruta]=trozos
+			part_list[fruta]=part_list[fruta]-trozos
+			ingredientes=ingredientes-trozos
+			
+#		part_list=ordenar_ingredientes(part_list)
+		var frutilla_ordenada=ordenar_ingredientes(frutilla)
+		var nombre=generar_nombre(frutilla_ordenada)
+		instanciar_frankenfruta(nombre,frutilla_ordenada)
+		frankenfruits.append(nombre)
+		
+	return frankenfruits
+
+func ordenar_ingredientes(part_list):
+	var ordenado=[]
+	var mayor
+	
+	while not part_list.empty():
+		mayor=null
+		for ingrediente in part_list:
+			if mayor==null or part_list[mayor]<=part_list[mayor]:
+				mayor=ingrediente
+		
+		ordenado.append(mayor)
+		part_list.erase(mayor)
+				
+	return ordenado
+	
+func generar_nombre(part_list):
+	var lexi={"Manzana":["man","za","na"],"Naranja":["na","ran","ja"],
+		"Cebolla":["ce","bo","lla"],"Platano":["pla","ta","no"],"Banana":["ba","na","na"],
+		"Limon":["li","mon"]}
+	
+	var nombre=""
+	
+	for ingrediente in part_list:
+		var silabas=len(lexi[ingrediente])
+		nombre=nombre+lexi[ingrediente][rng.randi_range(0,silabas-1)]	# We could use the number of parts to add repeteability
+	
+	nombre=nombre.substr(0,1).to_upper()+nombre.substr(1)
+	
+	var sufijo=nombre.substr(len(nombre)-1)
+	var sufijo_fruta_mayor=part_list[0].substr(len(part_list[0])-1)
+	if sufijo!=sufijo_fruta_mayor:
+		nombre=nombre+sufijo_fruta_mayor
+		
+	return nombre
+		
+func instanciar_frankenfruta(nombre,part_list):
+	print(nombre+" "+str(part_list))
+
 func suficientes_ingredientes_para_combo(combo,part_list):
 	var suficientes=true
 	
