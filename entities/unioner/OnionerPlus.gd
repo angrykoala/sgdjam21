@@ -52,9 +52,10 @@ func create_franken_fruits(part_list):
 				frankenfruits.append(combo)
 				
 				for ingrediente in combos[combo][0]:
-					var cantidad=combos[combo][0][ingrediente]
-					part_list[ingrediente]=part_list[ingrediente]-cantidad
-					ingredientes=ingredientes-cantidad
+					if ingrediente in part_list:
+						var cantidad=combos[combo][0][ingrediente]
+						part_list[ingrediente]=part_list[ingrediente]-cantidad
+						ingredientes=ingredientes-cantidad
 
 			if repetidos>0:
 				print(str(repetidos)+"x"+combo+": ("+str(combos[combo][1])+" puntos)")
@@ -119,6 +120,7 @@ func generar_nombre(part_list):
 func instanciar_frankenfruta(nombre,part_list):
 	var frankenfruta=null
 	var frankenfruta_=Spatial.new()
+	var offset=rng.randi_range(0,3)
 	
 	#print(nombre+" "+str(part_list))
 	for fruta_ in part_list:
@@ -127,20 +129,28 @@ func instanciar_frankenfruta(nombre,part_list):
 		
 		if cantidad>0 and (fruta in frutas_scenes):
 			frankenfruta=frutas_scenes[fruta].instance()
+			
+			for i in range(0,cantidad):
+				var visible=false
+				
+				if cantidad>0:
+					visible=true
+				frankenfruta.visibles[(i+offset)%4]=visible
+			
+			offset=(offset+cantidad)%4
+					
 			frankenfruta_.add_child(frankenfruta)
-
-	# enable visible parts (consecutive in case of several parts)
-	
-	
+			
 	return frankenfruta_
 
 func suficientes_ingredientes_para_combo(combo,part_list):
 	var suficientes=true
 	
 	for ingrediente in combo:
-		if combo[ingrediente]>part_list[ingrediente]:
-			suficientes=false
-			break
+		if ingrediente in part_list:
+			if combo[ingrediente]>part_list[ingrediente]:
+				suficientes=false
+				break
 	
 	return suficientes
 		

@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="SphereShape" id=2]
 radius = 0.24419
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="CylinderShape" id=3]
 height = 0.29305
 
 [node name="Spatial" type="Spatial"]
@@ -17,12 +17,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163053, 0 )
 
 [node name="CSGSphere" type="CSGSphere" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505014, 0 )
-material_override = SubResource( 3 )
+material_override = SubResource( 1 )
 radius = 0.245404
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501095, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999985, -0.00556755, 0, 0.00556755, 0.999985, 0, 0, 0 )
@@ -33,7 +33,7 @@ height = 0.238157
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133174, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="ConeTwistJoint" type="ConeTwistJoint" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.926147, 0.377162, 0, -0.377162, 0.926147, 0, 0.075729, 0.00406384 )

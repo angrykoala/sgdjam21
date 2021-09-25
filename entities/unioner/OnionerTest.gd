@@ -8,7 +8,7 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var ingredientes={"Manzana":6,"Naranja":9,"Cebolla":4}
+	var ingredientes={"Manzana":2,"Naranja":1,"Limon":1}
 	var frankenfruits=$OnionerPlus.create_franken_fruits(ingredientes)
 
 	for frankenfruta in frankenfruits:
