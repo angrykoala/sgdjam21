@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/fruits/lemon/lemon.material" type="Material" id=1]
 [ext_resource path="res://assets/Limoncin/Limon-1_4A.obj" type="ArrayMesh" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/Limoncin/Limon-1_4B.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/Limoncin/Limon-1_4AA.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://entities/fruits/fruit.tscn" type="PackedScene" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.805828, 1.1884, 0.764925 )
 
 [node name="Fruit" instance=ExtResource( 6 )]
 
@@ -24,3 +27,6 @@ material/0 = ExtResource( 1 )
 [node name="Limon-1_4BB" type="MeshInstance" parent="." index="3"]
 mesh = ExtResource( 3 )
 material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="4"]
+shape = SubResource( 1 )
