@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Naranja-1_4A.obj-4f5967e26dc7427259940b32f3a16a8f.mesh"
+
+[deps]
+
+files=[ "res://.import/Naranja-1_4A.obj-4f5967e26dc7427259940b32f3a16a8f.mesh" ]
+
+source_file="res://assets/Naranja/Naranja-1_4A.obj"
+dest_files=[ "res://.import/Naranja-1_4A.obj-4f5967e26dc7427259940b32f3a16a8f.mesh", "res://.import/Naranja-1_4A.obj-4f5967e26dc7427259940b32f3a16a8f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

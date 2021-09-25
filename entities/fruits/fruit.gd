@@ -5,6 +5,7 @@ extends RigidBody
 # var a: int = 2
 # var b: String = "text"
 
+export var nombre="Fruit"
 export var visibles=[true,true,true,true]
 
 #export var init_arc=0.0 setget set_init_arc, get_init_arc

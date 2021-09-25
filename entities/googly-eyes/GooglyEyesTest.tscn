@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/googly-eyes/Googly-eyesl.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/googly-eyes/Googly-eyes2.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ojo_loco"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eye:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.4, 4, 5.5, 7, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 0 ), Vector3( 90, -60, 0 ), Vector3( 90, 60, 0 ), Vector3( 90, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 45 ), Vector3( 90, 0, 45 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ojonuevo"
+
+[node name="GooglyEyesTest" type="Spatial"]
+
+[node name="Eye" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.906168, 0.422919, 0, -0.422919, 0.906168, 0, 1.70513, 4.31597 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ojo_loco"
+anims/ojo_loco = SubResource( 1 )
+anims/ojonuevo = SubResource( 2 )
+
+[node name="StaticBody2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.943281, -0.331996, 1.4512e-08, 0.204667, 0.581507, -0.787376, 0.261406, 0.742717, 0.616472, 1.92149, 0.0278172, 1.11022e-16 )
