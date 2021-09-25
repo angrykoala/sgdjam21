@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody",
+"class": "FruitPart",
+"language": "GDScript",
+"path": "res://entities/fruit_parts/fruit_part.gd"
+} ]
+_global_script_class_icons={
+"FruitPart": ""
+}
+
 [application]
 
 config/name="sgdjam21"

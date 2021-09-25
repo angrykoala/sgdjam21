@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/player/hands/hand.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entities/fruit_parts/half_lemon.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/fruit_parts/half_banana.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
