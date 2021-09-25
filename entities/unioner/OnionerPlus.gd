@@ -1,5 +1,8 @@
 extends Spatial
 
+var frutas_scenes = {"Manzana":preload("res://entities/fruits/apple/Manzana.tscn"),
+		"Naranja":preload("res://entities/fruits/orange/Naranja.tscn")
+		}
 
 export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
 					"Manzaranja":[{"Manzana":2,"Naranja":2},9]}
@@ -17,7 +20,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var ingredientes={"Manzana":6,"Naranja":9,"Cebolla":4}
+	var ingredientes={"Manzana":6,"Naranja":9,"Cebolla":0}
 
 	var texto="Con"
 	for ingrediente in ingredientes:
@@ -26,7 +29,7 @@ func _ready():
 	print(texto)
 	
 	var frankenfruits=create_franken_fruits(ingredientes)
-	print(frankenfruits)
+	# print(frankenfruits)
 
 func create_franken_fruits(part_list):
 	var frankenfruits=[]
@@ -71,7 +74,7 @@ func create_franken_fruits(part_list):
 		var frutilla_ordenada=ordenar_ingredientes(frutilla)
 		var nombre=generar_nombre(frutilla_ordenada)
 		instanciar_frankenfruta(nombre,frutilla_ordenada)
-		frankenfruits.append(nombre)
+		frankenfruits.append(instanciar_frankenfruta(nombre,frutilla_ordenada))
 		
 	return frankenfruits
 
@@ -85,7 +88,8 @@ func ordenar_ingredientes(part_list):
 			if mayor==null or part_list[mayor]<=part_list[mayor]:
 				mayor=ingrediente
 		
-		ordenado.append(mayor)
+		# ordenado.append(mayor)
+		ordenado.append([mayor,part_list[mayor]])
 		part_list.erase(mayor)
 				
 	return ordenado
@@ -97,21 +101,38 @@ func generar_nombre(part_list):
 	
 	var nombre=""
 	
-	for ingrediente in part_list:
+	for ingrediente_ in part_list:
+		var ingrediente=ingrediente_[0]
 		var silabas=len(lexi[ingrediente])
 		nombre=nombre+lexi[ingrediente][rng.randi_range(0,silabas-1)]	# We could use the number of parts to add repeteability
 	
 	nombre=nombre.substr(0,1).to_upper()+nombre.substr(1)
 	
 	var sufijo=nombre.substr(len(nombre)-1)
-	var sufijo_fruta_mayor=part_list[0].substr(len(part_list[0])-1)
+	var fruta_mayor=part_list[0][0]
+	var sufijo_fruta_mayor=fruta_mayor.substr(len(part_list[0])-1)
 	if sufijo!=sufijo_fruta_mayor:
 		nombre=nombre+sufijo_fruta_mayor
 		
 	return nombre
 		
 func instanciar_frankenfruta(nombre,part_list):
-	print(nombre+" "+str(part_list))
+	var frankenfruta=null
+	var frankenfruta_=Spatial.new()
+	
+	#print(nombre+" "+str(part_list))
+	for fruta_ in part_list:
+		var fruta=fruta_[0]
+		var cantidad=fruta_[1]
+		
+		if cantidad>0 and (fruta in frutas_scenes):
+			frankenfruta=frutas_scenes[fruta].instance()
+			frankenfruta_.add_child(frankenfruta)
+
+	# enable visible parts (consecutive in case of several parts)
+	
+	
+	return frankenfruta_
 
 func suficientes_ingredientes_para_combo(combo,part_list):
 	var suficientes=true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Platano/Platano-1_1Abajo.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/Platano/Platano_Text.png" type="Texture" id=2]
 [ext_resource path="res://entities/fruits/fruit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/googly-eyes/Googly-eyesl.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -21,3 +22,9 @@ material/0 = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.019644, 0 )
 shape = SubResource( 2 )
+
+[node name="Eye" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-10, 0.01, -4.37114e-10, 0, -4.37114e-10, -0.01, -0.01, -4.37114e-10, 1.91069e-17, 0.0320135, 0.079055, 0.030807 )
+
+[node name="Eye2" parent="." index="3" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-10, 0.01, -4.37114e-10, 0, -4.37114e-10, -0.01, -0.01, -4.37114e-10, 1.91069e-17, 0.0320135, 0.079055, -0.0313926 )
