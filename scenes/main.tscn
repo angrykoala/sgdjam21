@@ -150,6 +150,7 @@ autostart = true
 transform = Transform( 1, 0, 0, 0, 0.130647, 0.991429, 0, -0.991429, 0.130647, 0, 7.1063, 0 )
 light_energy = 5.92
 shadow_enabled = true
+shadow_color = Color( 0.690196, 0.690196, 0.690196, 1 )
 spot_range = 12.162
 
 [connection signal="fruta_creada" from="Player/FrankenFruitsBase" to="HUD" method="_on_FrankenFruitsBase_fruta_creada"]
