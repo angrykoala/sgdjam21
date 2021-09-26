@@ -6,16 +6,17 @@ extends Spatial
 
 var Frankenfruta=preload("res://entities/fruits/FrankenFruta.tscn")
 export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
-					"Manzaranja":[{"Manzana":2,"Naranja":2},9]}
-
-
-#Narabolla
-#Cebonja
-#Manalla
-#Ceranzana
-#Bananolla
-#Bananja
-#Manana
+					"Manzaranja":[{"Manzana":2,"Naranja":2},9],
+					"Narabolla":[{"Naranja":2,"Cebolla":2},20],
+					"Cebonja":[{"Naranja":1,"Cebolla":2},4],
+					"Ceranzana":[{"Manzana":2,"Cebolla":1,"Naranja":1},8],
+					"Bananolla":[{"Platano":3,"Cebolla":1},7],
+					"Bananja":[{"Platano":2,"Naranja":2},7],
+					"Manana":[{"Manzana":2,"Platano":2},7],		
+					"Manalla":[{"Manzana":2,"Cebolla":1},4],
+					"Limonmanzplat":[{"Manzana":1,"Limon":2,"Platano":1},8],
+					"Naramón":[{"Naranja":2,"Limón":2},8]
+					}
 
 #Elena:
 #Naramon
@@ -84,17 +85,62 @@ func create_franken_fruits(part_list):
 				trozos_frutilla=trozos_frutilla+trozos
 			
 #		part_list=ordenar_ingredientes(part_list)
+		var puntuacion=generar_puntuacion(frutilla)
 		var frutilla_ordenada=ordenar_ingredientes(frutilla)
 		var nombre=generar_nombre(frutilla_ordenada) # añadir si es manzana completa, el nombre completo
-		var puntuacion=generar_puntuacion(frutilla_ordenada)
 		var frutaa=instanciar_frankenfruta(nombre,frutilla_ordenada)
-		frutaa.puntuacion=puntuacion
+		
+		frutaa.puntuacion=puntuacion[0]
+		frutaa.completitud=puntuacion[1]
+		frutaa.variedad=puntuacion[2]
+		frutaa.acidez=puntuacion[3]
+		
 		frankenfruits.append(frutaa)
 		
 	return frankenfruits
 
+func is_combo(part_list):
+	var es_combo=true
+	var combo=null
+	
+	for combo_ in combos:
+		var igual=true
+		for ingrediente in combo_[0]:
+			if part_list.has(ingrediente):
+				if part_list[ingrediente]==combo_[0][ingrediente]:
+					pass
+				else:
+					igual=false
+			else:
+				igual=false
+		if igual:
+			combo=combo_
+			break
+				
+	return combo
+	
 func generar_puntuacion(frutilla_ordenada): # To complete!
-	return 10
+	var puntuacion=0
+	var variedad=0
+	var completitud=0
+	var acidez=0
+	
+	var acideces={"Manzana":-1,"Naranja":1,"Platano":0,"Cebolla":-1,"Limon":1}
+	
+
+	var combo=is_combo(frutilla_ordenada)
+	if combo!=null:
+			puntuacion=puntuacion+combos[combo][1]
+			
+	for frutilla in frutilla_ordenada:
+		completitud=completitud+frutilla_ordenada[frutilla]*frutilla_ordenada[frutilla]
+		acidez=acidez+acideces[frutilla]
+			
+	puntuacion=puntuacion+completitud
+	
+	if completitud<=1:
+		puntuacion=0
+	return [puntuacion,completitud,variedad,acidez]
 	
 func ordenar_ingredientes(part_list):
 	var ordenado=[]
@@ -122,18 +168,29 @@ func generar_nombre(part_list):
 	
 	var nombre=""
 	
-	for ingrediente_ in part_list:
-		var ingrediente=ingrediente_[0]
-		var silabas=len(lexi[ingrediente])
-		nombre=nombre+lexi[ingrediente][rng.randi_range(0,silabas-1)]	# We could use the number of parts to add repeteability
+	nombre=is_combo(part_list)
 	
-	nombre=nombre.substr(0,1).to_upper()+nombre.substr(1)
-	
-	var sufijo=nombre.substr(len(nombre)-1)
-	var fruta_mayor=part_list[0][0]
-	var sufijo_fruta_mayor=fruta_mayor.substr(len(part_list[0])-1)
-	if sufijo!=sufijo_fruta_mayor:
-		nombre=nombre+sufijo_fruta_mayor
+	if nombre==null:
+		nombre=""
+		
+		for ingrediente_ in part_list:
+			var ingrediente=ingrediente_[0]
+			var silabas=len(lexi[ingrediente])
+			for i in range(0,ingrediente_[1]):
+				nombre=nombre+lexi[ingrediente][rng.randi_range(0,silabas-1)]	# We could use the number of parts to add repeteability
+		
+		nombre=nombre.substr(0,1).to_upper()+nombre.substr(1)
+		
+		var sufijo=nombre.substr(len(nombre)-1)
+		var fruta_mayor=part_list[0][0]
+#		var sufijo_fruta_mayor=fruta_mayor.substr(len(part_list[0])-1)
+
+		if sufijo!="a" and sufijo!="e" and sufijo!="i" and sufijo!="o" and sufijo!="u":
+			var sufijo_fruta_mayor=fruta_mayor.substr(len(fruta_mayor)-1)
+			if sufijo!=sufijo_fruta_mayor:
+				nombre=nombre+sufijo_fruta_mayor
+	else:
+		print(nombre)
 		
 	return nombre
 		

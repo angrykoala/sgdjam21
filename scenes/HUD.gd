@@ -5,6 +5,8 @@ extends Control
 # var a = 2
 # var b = "text"
 
+export var label_time_to_live=5
+var puntuacion=0
 var camera
 var frutas=[]
 
@@ -18,19 +20,31 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var now=OS.get_unix_time()
+	
 	for fruta in frutas:
-		var pos=camera.unproject_position(fruta[0].get_global_transform().origin) 
-		if fruta[1]!=null:
-			fruta[1].set_global_position(pos)
+		if now-fruta[2]<label_time_to_live:
+			var pos=camera.unproject_position(fruta[0].get_global_transform().origin) 
+			if fruta[1]!=null:
+				fruta[1].set_global_position(pos)
+			else:
+				frutas.remove(fruta)
 		else:
-			frutas.remove(fruta)
+			if fruta[1]!=null:
+				fruta[1].queue_free()
+				frutas.erase(fruta)
 			
 func _on_FrankenFruitsBase_fruta_creada(nodo_fruta):
 	#var label=Etiqueta.instance()   # Label.new()
 	# label.set_texto("+"+str(nodo_fruta.puntuacion))
 	var label=Label.new()
-	label.text="+"+str(nodo_fruta.puntuacion)
+	label.text="+"+str(nodo_fruta.puntuacion)+"\n"+nodo_fruta.nombre
 	self.add_child(label)
-	frutas.append([nodo_fruta,label])
+	frutas.append([nodo_fruta,label,OS.get_unix_time()])
 
-# vaya código mojón....
+	
+	puntuacion=puntuacion+nodo_fruta.puntuacion
+	mostrar_puntuacion(puntuacion)	
+
+func mostrar_puntuacion(puntuacion):
+	$Score.text=str(puntuacion)+" puntos"
