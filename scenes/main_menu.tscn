@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/main_menu.gd" type="Script" id=7]
+[ext_resource path="res://assets/fonts/kempt/kempt_font.res" type="DynamicFont" id=8]
+[ext_resource path="res://entities/cebolla-vengadora/UnionOnion.tscn" type="PackedScene" id=9]
 
 [node name="MainMenu" type="Spatial"]
 script = ExtResource( 7 )
@@ -34,21 +36,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.8878
-margin_top = -116.5
-margin_right = 77.1122
-margin_bottom = 116.5
+margin_left = -81.0
+margin_top = -116.0
+margin_right = 77.0
+margin_bottom = 72.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -41.0
-margin_top = 56.0
+margin_top = -29.0
 margin_right = 41.0
-margin_bottom = 76.0
+margin_bottom = -9.0
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,27 +60,41 @@ __meta__ = {
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -41.0
-margin_top = 106.0
+margin_top = 19.0
 margin_right = 41.0
-margin_bottom = 126.0
+margin_bottom = 39.0
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="Score" type="Label" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -48.0
-margin_top = 4.0
-margin_right = 48.0
-margin_bottom = 18.0
-text = "FRANKENFRUIT"
+margin_left = -151.0
+margin_top = -143.0
+margin_right = 149.0
+margin_bottom = -18.0
+custom_fonts/font = ExtResource( 8 )
+text = "Union Onion
+(Frankenfruit)"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UnionOnion" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.16737, 0.0371177, 0.24619, 0.0780274, 0.289523, 0.00939539, -0.23643, 0.0692736, -0.171179, -1.46979, -0.645677, 0 )
+
+[node name="robot_hand2" parent="UnionOnion" index="5"]
+transform = Transform( -0.798919, -0.601439, -5.96046e-08, 0.601439, -0.798919, -1.49012e-08, -2.98023e-08, -2.98023e-08, 1, 0, 0, -2.23229 )
+
 [connection signal="pressed" from="CanvasLayer/Panel/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/ExitButton" to="." method="_on_exit_pressed"]
+
+[editable path="UnionOnion"]

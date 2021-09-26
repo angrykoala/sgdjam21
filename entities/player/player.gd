@@ -27,7 +27,6 @@ func can_clap()->bool:
 	return left_hand.can_clap() and right_hand.can_clap()
 
 func on_clap_end() -> void:
-	print("Clap end")
 	var fruit_parts:={}
 	
 	if len(fruit_caught_left) + len(fruit_caught_right) > 0:

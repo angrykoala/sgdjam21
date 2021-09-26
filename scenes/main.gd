@@ -1,11 +1,13 @@
 extends Spatial
 
-export var time_left:int=123
+export var time_left:int=124
 export(String, FILE) var results_scene_path
 
-onready var time_label:Label=$HUD/TimeLabel
+onready var time_label:Label=$HUD/Time
 
 func _ready() -> void:
+	Utils.reset_score()
+	Utils.reset_frankenfruits()
 	randomize()
 
 

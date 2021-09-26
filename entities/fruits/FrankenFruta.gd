@@ -1,6 +1,9 @@
 extends RigidBody
 
-var puntuacion=10
+var puntuacion=1
+var variedad=0
+var completitud=0
+var acidez=0
 
 var nombre="Frankenfruta"
 var frutas=["Manzana","Limon","Naranja","Cebolla","Platano"]
