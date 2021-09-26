@@ -39,12 +39,12 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="HUD"]
-margin_left = 415.058
-margin_top = 3.7551
-margin_right = 715.058
-margin_bottom = 67.7551
+margin_left = 413.936
+margin_top = 4.87755
+margin_right = 713.936
+margin_bottom = 68.8775
 custom_fonts/font = ExtResource( 15 )
-text = "0000 puntos"
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
