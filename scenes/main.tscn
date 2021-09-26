@@ -26,6 +26,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+time_left = 130
 results_scene_path = "res://scenes/results.tscn"
 
 [node name="HUD" type="Control" parent="."]
@@ -66,7 +67,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4813, 0 )
 fruits = [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 min_spawn_force = Vector2( -8, -2 )
 max_spawn_force = Vector2( 8, 0 )
-drop_time_reducer = 0.006
+drop_time_reducer = 0.004
 
 [node name="FruitBounds" parent="." instance=ExtResource( 5 )]
 

@@ -1,6 +1,6 @@
 extends Spatial
 
-export var time_left:int=100
+export var time_left:int=140
 export(String, FILE) var results_scene_path
 
 onready var time_label:Label=$HUD/TimeLabel
