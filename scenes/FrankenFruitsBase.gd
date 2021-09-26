@@ -5,7 +5,7 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
-
+onready var default_position =  $Corners/Center.global_transform.origin
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func create_frankenfruits(ingredients):
+func create_frankenfruits(ingredients,parent):
 	var ingredientes={}
 	var translation_={"onion":"Cebolla","apple":"Manzana","lemon":"Limon","orange":"Naranja","banana":"Platano"}
 	for ingredient in ingredients:
@@ -26,7 +26,7 @@ func create_frankenfruits(ingredients):
 		if typeof(frankenfruta)==TYPE_STRING:
 			pass
 		else:
-			self.add_child(frankenfruta)
-			frankenfruta.transform.origin=$Position.transform.origin
+			parent.add_child(frankenfruta)
+			frankenfruta.global_transform.origin=parent.global_transform.origin
 			frankenfruta.rotate(Vector3.UP,90.0)
-			$Position.transform.origin.x=$Position.transform.origin.x+4
+			#$Position.transform.origin.x=position_.transform.origin.x+4

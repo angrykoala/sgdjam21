@@ -32,7 +32,8 @@ func on_clap_end() -> void:
 		fruit.queue_free()
 	print(fruit_parts)
 	
-	frankenfruits_generator.create_frankenfruits(fruit_parts)
+	# frankenfruits_generator.create_frankenfruits(fruit_parts,clap_center.global_transform.origin)
+	frankenfruits_generator.create_frankenfruits(fruit_parts,clap_center)
 	
 
 func add_fruit_part_to_group(part: FruitPart, group:Dictionary)->Dictionary:

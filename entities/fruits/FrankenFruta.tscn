@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://entities/fruits/orange/orange.material" type="Material" id=1]
 [ext_resource path="res://entities/fruits/apple/apple.material" type="Material" id=2]
@@ -86,7 +86,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="SphereShape" id=5]
-radius = 2.26315
+radius = 2.26
 
 [sub_resource type="Animation" id=6]
 resource_name = "blick"
@@ -122,7 +122,65 @@ tracks/0/keys = {
 "values": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 25 ) ]
 }
 
-[node name="FrankenFruta" type="KinematicBody"]
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.487711, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.487711, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -0.488, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 9, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -8, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="FrankenFruta" type="RigidBody"]
+mass = 1.37
 script = ExtResource( 14 )
 
 [node name="ojos" type="MeshInstance" parent="."]
@@ -131,7 +189,7 @@ mesh = ExtResource( 24 )
 material/0 = ExtResource( 21 )
 
 [node name="boca" type="MeshInstance" parent="."]
-transform = Transform( -4.2234e-08, -0.257791, -0.966201, -1.12684e-08, 0.966201, -0.257791, 1, 0, -4.37114e-08, -1.57847, -0.676673, 0 )
+transform = Transform( -4.2234e-08, -0.257791, -0.966201, -1.11759e-08, 0.966201, -0.257791, 1, -3.72529e-09, -4.37722e-08, -1.57847, -0.676673, -1.86265e-09 )
 mesh = ExtResource( 24 )
 material/0 = ExtResource( 28 )
 
@@ -260,5 +318,11 @@ shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "blick"
+playback_process_mode = 0
 anims/blick = SubResource( 6 )
 anims/boca = SubResource( 7 )
+
+[node name="AnimationPlayerMotion" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+anims/idle = SubResource( 8 )
+anims/walk = SubResource( 9 )

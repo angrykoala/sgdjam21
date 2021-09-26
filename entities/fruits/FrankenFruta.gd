@@ -1,4 +1,4 @@
-extends KinematicBody
+extends RigidBody
 
 var nombre="Frankenfruta"
 var frutas=["Manzana","Limon","Naranja","Cebolla","Platano"]
