@@ -45,11 +45,14 @@ margin_right = 715.058
 margin_bottom = 67.7551
 custom_fonts/font = ExtResource( 15 )
 text = "0000 puntos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Time" type="Label" parent="HUD"]
-margin_left = 0.69339
+margin_left = 13.6934
 margin_top = 3.7551
-margin_right = 300.693
+margin_right = 313.693
 margin_bottom = 67.7551
 custom_fonts/font = ExtResource( 15 )
 text = "Time: 100"

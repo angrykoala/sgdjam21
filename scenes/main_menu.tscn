@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/main_menu.gd" type="Script" id=7]
+[ext_resource path="res://assets/fonts/kempt/kempt_font.res" type="DynamicFont" id=8]
 
 [node name="MainMenu" type="Spatial"]
 script = ExtResource( 7 )
@@ -34,21 +35,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.8878
-margin_top = -116.5
-margin_right = 77.1122
-margin_bottom = 116.5
+margin_left = -81.0
+margin_top = -116.0
+margin_right = 77.0
+margin_bottom = 72.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -41.0
-margin_top = 56.0
+margin_top = -29.0
 margin_right = 41.0
-margin_bottom = 76.0
+margin_bottom = -9.0
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,24 +59,29 @@ __meta__ = {
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -41.0
-margin_top = 106.0
+margin_top = 19.0
 margin_right = 41.0
-margin_bottom = 126.0
+margin_bottom = 39.0
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="Score" type="Label" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -48.0
-margin_top = 4.0
-margin_right = 48.0
-margin_bottom = 18.0
-text = "FRANKENFRUIT"
+margin_left = -150.0
+margin_top = -79.0
+margin_right = 150.0
+margin_bottom = -15.0
+custom_fonts/font = ExtResource( 8 )
+text = "Frankenfruit"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
