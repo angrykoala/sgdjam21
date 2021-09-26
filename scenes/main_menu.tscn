@@ -88,6 +88,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Instructions" type="Label" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -189.0
+custom_fonts/font = ExtResource( 8 )
+text = "Move Left Hand - [A] [D]
+Move Right Hand - [<-] [->]
+Combine Fruit: [Space]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="UnionOnion" parent="." instance=ExtResource( 9 )]
 transform = Transform( -0.16737, 0.0371177, 0.24619, 0.0780274, 0.289523, 0.00939539, -0.23643, 0.0692736, -0.171179, -1.46979, -0.645677, 0 )
 
