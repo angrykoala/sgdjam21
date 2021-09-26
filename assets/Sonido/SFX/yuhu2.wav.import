@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/yuhu2.wav-41ef961245732b55c8f027a1de8eeaea.sample"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/yuhu2.wav"
+dest_files=[ "res://.import/yuhu2.wav-41ef961245732b55c8f027a1de8eeaea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
