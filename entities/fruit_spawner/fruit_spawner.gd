@@ -29,13 +29,13 @@ func _ready():
 	random_spawner.one_shot = false
 	random_spawner.wait_time = poisson(drop_rates[0])
 	random_spawner.connect("timeout", self, "timer_spawn")
-	
+
 	next_stage = stage_time[1] - delay_fruitafall
 	next_hit = hit_times[0] - delay_fruitafall
-	
+
 	add_child(random_spawner)
 	random_spawner.start()
-	
+
 
 #Genera numeros aleatorios segun una distribucion de Poisson
 func poisson(rate):
@@ -43,19 +43,19 @@ func poisson(rate):
 
 
 func spawn_fruit(use_random_force:bool)->void:
-	
+
 	#Create the fruit
 	var fruit=get_fruit()
 	var fruit_instance=fruit.instance() as RigidBody
 	var spawn_force=Utils.get_random_vector3(_max_spawn_force, _min_spawn_force)
-	
+
 	if use_random_force:
 		fruit_instance.add_central_force(spawn_force)
 	else:
 		fruit_instance.translate(Vector3(0,-2.0,0))
-	
+
 	fruit_instance.add_torque(Utils.get_random_vector3(max_torque_force))
-	fruit_instance.translate(Utils.get_random_displacement(1.0)) 
+	fruit_instance.translate(Utils.get_random_displacement(1.0))
 	add_child(fruit_instance)
 
 func timer_spawn():
@@ -66,20 +66,20 @@ func timer_spawn():
 		random_spawner.wait_time = poisson(drop_rates[0])
 
 func _process(delta):
-	var musicpos = Utils.music.get_playback_position() 
-	
+	var musicpos = Utils.music.get_playback_position()
+
 	if musicpos >= next_hit and hit_stage+1 < len(hit_times):
 		for j in range(amount_hit[hit_stage]):
 			spawn_fruit(false)
 		hit_stage += 1
 		next_hit = hit_times[hit_stage] - delay_fruitafall
 		print("hit hit")
-	
+
 	if musicpos >= next_stage and stage+2 < len(stage_time):
 		next_stage = stage_time[stage+2] - delay_fruitafall
 		stage += 1
 		print("next stage " + str(stage))
-	
+
 
 
 

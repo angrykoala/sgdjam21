@@ -16,7 +16,7 @@ func _ready() -> void:
 	#music.connect("finished", self, "end_game")
 	add_child(music)
 	music.play()
-	
+
 	click.bus = "sfx"
 	click.stream= load("res://assets/Sonido/SFX/menu.wav")
 	add_child(click)
@@ -35,7 +35,7 @@ func get_random_vector3(max_value:Vector3, min_value:Vector3=Vector3.ZERO) -> Ve
 func get_random_displacement(disp:float) -> Vector3:
 	var randdisp = rng.randf_range(-disp, disp)
 	return Vector3(randdisp, 0.0, 0.0)
-	
+
 
 func get_random_item(items:Array):
 	return items[rng.randi_range(0, items.size()-1)]

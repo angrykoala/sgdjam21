@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/main_menu.gd" type="Script" id=7]
 [ext_resource path="res://assets/fonts/kempt/kempt_font.res" type="DynamicFont" id=8]
 [ext_resource path="res://entities/cebolla-vengadora/UnionOnion.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/fonts/kempt/kempt_font_30.res" type="DynamicFont" id=10]
 
 [node name="MainMenu" type="Spatial"]
 script = ExtResource( 7 )
@@ -36,9 +37,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -81.0
+margin_left = -188.0
 margin_top = -116.0
-margin_right = 77.0
+margin_right = 122.0
 margin_bottom = 72.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,10 +50,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -41.0
-margin_top = -29.0
-margin_right = 41.0
-margin_bottom = -9.0
+margin_left = -79.0
+margin_top = -73.0
+margin_right = 82.0
+margin_bottom = -6.0
+custom_fonts/font = ExtResource( 8 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,10 +65,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -41.0
-margin_top = 19.0
-margin_right = 41.0
-margin_bottom = 39.0
+margin_left = -75.0
+margin_top = 11.0
+margin_right = 79.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 8 )
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,9 +95,11 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -189.0
-custom_fonts/font = ExtResource( 8 )
-text = "Move Left Hand - [A] [D]
+margin_left = 557.0
+margin_top = -224.0
+custom_fonts/font = ExtResource( 10 )
+text = "Instructions:
+Move Left Hand - [A] [D]
 Move Right Hand - [<-] [->]
 Combine Fruit - [Space]"
 align = 1
