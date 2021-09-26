@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/results.gd" type="Script" id=1]
+[ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=5]
+
+[node name="ResultsMenu" type="Spatial"]
+script = ExtResource( 1 )
+main_menu_path = "res://scenes/main_menu.tscn"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+current = true
+fov = 50.1628
+
+[node name="Background" parent="." instance=ExtResource( 5 )]
+transform = Transform( 5, 0, 0, 0, -2.62268e-07, -5, 0, 6, -2.18557e-07, 0, 0, -2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.941176 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.8878
+margin_top = -116.5
+margin_right = 77.1122
+margin_bottom = 116.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OkButton" type="Button" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -39.2432
+margin_top = 189.38
+margin_right = 42.7568
+margin_bottom = 209.38
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 4.0
+margin_right = 48.0
+margin_bottom = 18.0
+text = "Results"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CanvasLayer/Panel/OkButton" to="." method="_on_ok_pressed"]
