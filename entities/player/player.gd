@@ -7,11 +7,16 @@ onready var clap_center=$ClapCenter
 
 onready var frankenfruits_generator=$FrankenFruitsBase
 
+var sfxclap = AudioStreamPlayer.new()
+
 var fruit_caught_left=[]
 var fruit_caught_right=[]
 
 func _ready()->void:
 	left_hand.connect("clap_end", self, "on_clap_end")
+	sfxclap.bus = "sfx"
+	sfxclap.stream = load("res://assets/Sonido/SFX/clap.wav")
+	add_child(sfxclap)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("clap") and can_clap():
@@ -23,6 +28,11 @@ func can_clap()->bool:
 
 func on_clap_end() -> void:
 	var fruit_parts:={}
+	
+	if len(fruit_caught_left) + len(fruit_caught_right) > 0:
+		sfxclap.pitch_scale = rand_range(0.9,1.1)
+		sfxclap.play()
+	
 	for fruit in fruit_caught_left:
 		add_fruit_part_to_group(fruit, fruit_parts)
 		fruit.queue_free()

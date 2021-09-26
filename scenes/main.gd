@@ -1,10 +1,9 @@
 extends Spatial
 
-export var time_left:int=140
+export var time_left:int=124
 export(String, FILE) var results_scene_path
 
 onready var time_label:Label=$HUD/Time
-
 
 func _ready() -> void:
 	Utils.reset_score()
@@ -21,3 +20,5 @@ func _on_time_tick() -> void:
 
 func on_game_finish():
 	get_tree().change_scene(results_scene_path)
+	Utils.current_scene = "results"
+	Utils.change_music("outro")

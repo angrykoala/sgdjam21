@@ -1,4 +1,8 @@
-[gd_scene load_steps=17 format=2]
+<<<<<<< HEAD
+[gd_scene load_steps=16 format=2]
+=======
+[gd_scene load_steps=18 format=2]
+>>>>>>> 6e1595b54159d9821ae90608687780b2442d3f05
 
 [ext_resource path="res://entities/player/hands/hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=2]
