@@ -50,4 +50,4 @@ func _on_FrankenFruitsBase_fruta_creada(nodo_fruta):
 	mostrar_puntuacion(puntuacion)
 
 func mostrar_puntuacion(puntuacion):
-	$Score.text=str(puntuacion)+" puntos"
+	$Score.text=str(puntuacion)+" points"
