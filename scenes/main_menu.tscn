@@ -96,7 +96,7 @@ margin_top = -189.0
 custom_fonts/font = ExtResource( 8 )
 text = "Move Left Hand - [A] [D]
 Move Right Hand - [<-] [->]
-Combine Fruit: [Space]"
+Combine Fruit - [Space]"
 align = 1
 valign = 1
 __meta__ = {
