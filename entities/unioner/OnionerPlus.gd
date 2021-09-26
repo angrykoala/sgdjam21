@@ -15,7 +15,12 @@ export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
 					"Manana":[{"Manzana":2,"Platano":2},7],		
 					"Manalla":[{"Manzana":2,"Cebolla":1},4],
 					"Limonmanzplat":[{"Manzana":1,"Limon":2,"Platano":1},8],
-					"Naramón":[{"Naranja":2,"Limón":2},8]
+					"Naramón":[{"Naranja":2,"Limón":2},8],
+					"Limonón":[{"Limon":4},20],
+					"Naránjaja":[{"Naranja":4},20],
+					"Cebobolla":[{"Cebolla":4},20],
+					"Manzanana":[{"Manzana":4},20],
+					"Bananana":[{"Platano":4},20]
 					}
 
 #Elena:
