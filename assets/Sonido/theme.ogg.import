@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme.ogg-62f7992f878a531bc2123f07908fca42.oggstr"
+
+[deps]
+
+source_file="res://assets/Sonido/theme.ogg"
+dest_files=[ "res://.import/theme.ogg-62f7992f878a531bc2123f07908fca42.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clap.wav-31ad87c8af2dd30383decbf329bbaf75.sample"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/clap.wav"
+dest_files=[ "res://.import/clap.wav-31ad87c8af2dd30383decbf329bbaf75.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
