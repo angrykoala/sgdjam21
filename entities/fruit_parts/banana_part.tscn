@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Platano/Platano-1_1Abajo.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/fruit_parts/fruit_part.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Platano/Platano_Text.png" type="Texture" id=3]
+[ext_resource path="res://assets/Platano/Platano-Sat.png" type="Texture" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )

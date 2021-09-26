@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Limoncin/Limon-1_4A.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/Limoncin/Limon-Text.png" type="Texture" id=2]
+[ext_resource path="res://assets/Limoncin/Limon-Sat.png" type="Texture" id=2]
 [ext_resource path="res://entities/fruit_parts/fruit_part.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
