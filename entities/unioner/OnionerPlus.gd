@@ -1,9 +1,10 @@
 extends Spatial
 
-var frutas_scenes = {"Manzana":preload("res://entities/fruits/apple/Manzana.tscn"),
-		"Naranja":preload("res://entities/fruits/orange/Naranja.tscn")
-		}
+# var frutas_scenes = {"Manzana":preload("res://entities/fruits/apple/Manzana.tscn"),
+#		"Naranja":preload("res://entities/fruits/orange/Naranja.tscn")
+#		}
 
+var Frankenfruta=preload("res://entities/fruits/FrankenFruta.tscn")
 export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
 					"Manzaranja":[{"Manzana":2,"Naranja":2},9]}
 
@@ -15,6 +16,10 @@ export var combos={"Manzajabolla":[{"Manzana":2,"Naranja":1,"Cebolla":1},12],
 #Bananolla
 #Bananja
 #Manana
+
+#Elena:
+#Naramon
+#Limonmanzplat
 
 var rng = RandomNumberGenerator.new()
 
@@ -70,31 +75,37 @@ func create_franken_fruits(part_list):
 		var trozos_frutilla=0
 		
 		for fruta in part_list:
-			var trozos=rng.randi_range(0,part_list[fruta])
-			frutilla[fruta]=trozos
-			part_list[fruta]=part_list[fruta]-trozos
-			ingredientes=ingredientes-trozos
+			if trozos_frutilla<4:
+				#var trozos=rng.randi_range(0,part_list[fruta])
+				var trozos=min(part_list[fruta],max(0,4-trozos_frutilla))
+				frutilla[fruta]=trozos
+				part_list[fruta]=part_list[fruta]-trozos
+				ingredientes=ingredientes-trozos
+				trozos_frutilla=trozos_frutilla+trozos
 			
 #		part_list=ordenar_ingredientes(part_list)
 		var frutilla_ordenada=ordenar_ingredientes(frutilla)
-		var nombre=generar_nombre(frutilla_ordenada)
-		instanciar_frankenfruta(nombre,frutilla_ordenada)
-		frankenfruits.append(instanciar_frankenfruta(nombre,frutilla_ordenada))
+		var nombre=generar_nombre(frutilla_ordenada) # añadir si es manzana completa, el nombre completo
+		var frutaa=instanciar_frankenfruta(nombre,frutilla_ordenada)
+		frankenfruits.append(frutaa)
 		
 	return frankenfruits
 
 func ordenar_ingredientes(part_list):
 	var ordenado=[]
+	
 	var mayor
 	
 	while not part_list.empty():
 		mayor=null
 		for ingrediente in part_list:
-			if mayor==null or part_list[mayor]<=part_list[mayor]:
+			if mayor==null or (part_list[mayor]<=part_list[ingrediente] and part_list[ingrediente]>0):
 				mayor=ingrediente
 		
 		# ordenado.append(mayor)
-		ordenado.append([mayor,part_list[mayor]])
+		if mayor!=null:
+			ordenado.append([mayor,part_list[mayor]])
+			
 		part_list.erase(mayor)
 				
 	return ordenado
@@ -122,30 +133,27 @@ func generar_nombre(part_list):
 	return nombre
 		
 func instanciar_frankenfruta(nombre,part_list):
-	var frankenfruta=null
-	var frankenfruta_=Spatial.new()
 	var offset=rng.randi_range(0,3)
+	offset=0 #### comment to create different combinations
+	var frankenfruta=Frankenfruta.instance()
+	frankenfruta.nombre=nombre
 	
 	#print(nombre+" "+str(part_list))
 	for fruta_ in part_list:
 		var fruta=fruta_[0]
 		var cantidad=fruta_[1]
 		
-		if cantidad>0 and (fruta in frutas_scenes):
-			frankenfruta=frutas_scenes[fruta].instance()
-			
+		if cantidad>0:
 			for i in range(0,cantidad):
 				var visible=false
 				
 				if cantidad>0:
-					visible=true
-				frankenfruta.visibles[(i+offset)%4]=visible
+					frankenfruta.visibles_piezas[(i+offset)%4]=frankenfruta.codigo_fruta[fruta]
 			
 			offset=(offset+cantidad)%4
-					
-			frankenfruta_.add_child(frankenfruta)
-			
-	return frankenfruta_
+	
+	frankenfruta.mostrar_frankenfruta(frankenfruta.visibles_piezas)
+	return frankenfruta
 
 func suficientes_ingredientes_para_combo(combo,part_list):
 	var suficientes=true
