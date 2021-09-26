@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wiiii1.wav-8c982fc55d0a7e44b5d7518898fa1284.sample"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/wiiii1.wav"
+dest_files=[ "res://.import/wiiii1.wav-8c982fc55d0a7e44b5d7518898fa1284.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

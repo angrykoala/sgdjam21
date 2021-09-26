@@ -22,13 +22,16 @@ func create_frankenfruits(ingredients,parent):
 		ingredientes[translation_[ingredient]]=ingredients[ingredient]
 	
 	var frankenfruits=$OnionerPlus.create_franken_fruits(ingredientes)
-
+	
 	for frankenfruta in frankenfruits:
 		if typeof(frankenfruta)==TYPE_STRING:
 			pass
 		else:
 			parent.add_child(frankenfruta)
 			frankenfruta.global_transform.origin=parent.global_transform.origin
+			frankenfruta.start_timer_2_scream()
 			frankenfruta.rotate(Vector3.UP,90.0) # hack para que mirten las frutas...
+
 			emit_signal("fruta_creada",frankenfruta)
+
 			#$Position.transform.origin.x=position_.transform.origin.x+4

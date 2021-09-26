@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wohohoho2.wav-a6f8159f97ffce414f3c71f4d58a19d9.sample"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/wohohoho2.wav"
+dest_files=[ "res://.import/wohohoho2.wav-a6f8159f97ffce414f3c71f4d58a19d9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

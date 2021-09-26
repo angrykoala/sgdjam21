@@ -9,13 +9,68 @@ onready var nodos_frutas={"Manzana":$Manzana,"Limon":$Limon,"Naranja":$Naranja,
 	"Cebolla":$Cebolla,"Platano":$Platano}
 var visibles_piezas=[null,null,null,null] setget mostrar_frankenfruta, get_visible
 
+var gritos = {"feliz": ["vitaminas1", "vitaminas2", "wiiii1", "wiiii2",
+	"yuhu1", "yuhu2", "wohohoho", "wohohoho2"],
+	"decente": ["aaaah", "ooooh", "ooooh2"],
+	"triste": ["horrible1", "horrible2", "memuero1", "memuero2"] }
+
+var sfx = AudioStreamPlayer.new()
+var timer_sound = Timer.new()
+
 func get_visible():
 	return visibles_piezas
+
+#TODO: mejorar usando los puntos para "asignar_sonido"
+func fraccion_piezas_iguales():
+	
+	var npiezas = 4
+	var iguales = 0
+	var nonnull = 0
+	for i in range(npiezas):
+		var pieza1 = visibles_piezas[i]
+		nonnull += int(pieza1 != null)
+		for j in range(i+1, npiezas-1):
+			var pieza2 = visibles_piezas[j]
+			iguales += int(pieza1 == pieza2 and pieza1 != null)
+	
+	return iguales / (1.0 * nonnull) + nonnull / 4.0
+
+func asignar_sonido():
+	var fraccion = fraccion_piezas_iguales()
+	
+	print(fraccion)
+	
+	var gritoarray = null
+	if fraccion > 0.8:
+		gritoarray = gritos["feliz"]
+	elif fraccion > 0.4: 
+		gritoarray = gritos["decente"]
+	else:
+		gritoarray = gritos["triste"]
+	
+	var randindex = randi() % len(gritoarray)
+	var grito = load("res://assets/Sonido/SFX/" + gritoarray[randindex] + ".wav")
+	
+	sfx.stream = grito
+	sfx.bus = "sfx"
+	sfx.pitch_scale = rand_range(0.7,1.4)
+	timer_sound.wait_time = rand_range(0.3, 2.0)
+	timer_sound.connect("timeout", self, "scream")
+	timer_sound.one_shot = true
+	add_child(timer_sound)
+	add_child(sfx)
+
+func scream():
+	sfx.play()
+
+func start_timer_2_scream():
+	timer_sound.start()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# limpiar()
 	#mostrar_frankenfruta(visibles)
+	asignar_sonido()
 	pass
 
 func limpiar():
