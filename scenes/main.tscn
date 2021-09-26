@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://entities/player/hands/hand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main.gd" type="Script" id=4]
 [ext_resource path="res://entities/bounds/bounds.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/nobiax_texture/diffuse.tga" type="Texture" id=6]
 [ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=8]
 [ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=9]
@@ -14,11 +15,21 @@
 [ext_resource path="res://entities/unioner/OnionerPlus.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/HUD.gd" type="Script" id=14]
 [ext_resource path="res://assets/fonts/kempt/kempt_font.res" type="DynamicFont" id=15]
+[ext_resource path="res://assets/nobiax_texture/normal.tga" type="Texture" id=16]
+[ext_resource path="res://assets/nobiax_texture/specular.tga" type="Texture" id=17]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 62.503, 1.81125, 12.5893 )
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 6 )
+metallic_texture = ExtResource( 17 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 16 )
+uv1_scale = Vector3( 0.5, 2, 1 )
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 62.503, 1.81125, 12.5893 )
+
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 1, 2.90105, 3.05499 )
 
 [node name="Main" type="Spatial"]
@@ -89,10 +100,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.04037, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.00445, -0.807198 )
 width = 126.973
 depth = 27.779
+material = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player/FrankenFruitsBase/Table"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.09893, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Corners" type="Spatial" parent="Player/FrankenFruitsBase/Table"]
 
@@ -125,11 +137,11 @@ transform = Transform( 5, 0, 0, 0, -2.62268e-07, -5, 0, 6, -2.18557e-07, 0, 0, -
 
 [node name="CollisionShape" type="CollisionShape" parent="HandsBounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06153, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="HandsBounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19323, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

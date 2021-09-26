@@ -28,11 +28,11 @@ func can_clap()->bool:
 
 func on_clap_end() -> void:
 	var fruit_parts:={}
-	
+
 	if len(fruit_caught_left) + len(fruit_caught_right) > 0:
 		sfxclap.pitch_scale = rand_range(0.9,1.1)
 		sfxclap.play()
-	
+
 	for fruit in fruit_caught_left:
 		add_fruit_part_to_group(fruit, fruit_parts)
 		fruit.queue_free()
