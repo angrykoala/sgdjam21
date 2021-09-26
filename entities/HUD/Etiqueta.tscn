@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/HUD/Etiqueta.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/kempt/kempt_font.res" type="DynamicFont" id=2]
+
+[node name="Etiqueta" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tiempo_de_vida = 7
+
+[node name="Label" type="Label" parent="."]
+margin_right = 322.0
+margin_bottom = 61.0
+custom_fonts/font = ExtResource( 2 )
+text = "Puntuación"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

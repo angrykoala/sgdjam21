@@ -107,6 +107,7 @@ transform = Transform( 5, 0, 0, 0, -2.62268e-07, -5, 0, 6, -2.18557e-07, 0, 0, -
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+autoplay = true
 
 [node name="HandsBounds" type="StaticBody" parent="."]
 

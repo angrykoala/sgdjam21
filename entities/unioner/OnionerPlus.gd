@@ -86,11 +86,16 @@ func create_franken_fruits(part_list):
 #		part_list=ordenar_ingredientes(part_list)
 		var frutilla_ordenada=ordenar_ingredientes(frutilla)
 		var nombre=generar_nombre(frutilla_ordenada) # añadir si es manzana completa, el nombre completo
+		var puntuacion=generar_puntuacion(frutilla_ordenada)
 		var frutaa=instanciar_frankenfruta(nombre,frutilla_ordenada)
+		frutaa.puntuacion=puntuacion
 		frankenfruits.append(frutaa)
 		
 	return frankenfruits
 
+func generar_puntuacion(frutilla_ordenada): # To complete!
+	return 10
+	
 func ordenar_ingredientes(part_list):
 	var ordenado=[]
 	
