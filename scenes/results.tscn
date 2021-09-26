@@ -117,7 +117,7 @@ margin_top = 226.0
 margin_right = 317.0
 margin_bottom = 257.0
 text = "Ana Buendía
-Actriz"
+Voces"
 align = 1
 
 [connection signal="pressed" from="CanvasLayer/Panel/OkButton" to="." method="_on_ok_pressed"]
