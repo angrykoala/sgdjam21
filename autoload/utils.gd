@@ -32,4 +32,4 @@ func add_frankenfruit(frankenfruit):
 		frankenfruits_list[frankenfruit.nombre][1]=frankenfruits_list[frankenfruit.nombre][1]+1
 	else:
 		frankenfruits_list[frankenfruit.nombre]=[frankenfruit,1]
-		
+
