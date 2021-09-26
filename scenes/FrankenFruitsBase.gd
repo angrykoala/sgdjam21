@@ -1,5 +1,6 @@
 extends Spatial
 
+signal fruta_creada(nodo_fruta)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,5 +29,6 @@ func create_frankenfruits(ingredients,parent):
 		else:
 			parent.add_child(frankenfruta)
 			frankenfruta.global_transform.origin=parent.global_transform.origin
-			frankenfruta.rotate(Vector3.UP,90.0)
+			frankenfruta.rotate(Vector3.UP,90.0) # hack para que mirten las frutas...
+			emit_signal("fruta_creada",frankenfruta)
 			#$Position.transform.origin.x=position_.transform.origin.x+4

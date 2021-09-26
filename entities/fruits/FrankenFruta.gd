@@ -1,5 +1,7 @@
 extends RigidBody
 
+var puntuacion=10
+
 var nombre="Frankenfruta"
 var frutas=["Manzana","Limon","Naranja","Cebolla","Platano"]
 var codigo_fruta={"Manzana":0,"Limon":1,"Naranja":2,"Cebolla":3,"Platano":4}
