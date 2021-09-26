@@ -7,6 +7,8 @@ onready var time_label:Label=$HUD/TimeLabel
 
 
 func _ready() -> void:
+	Utils.reset_score()
+	Utils.reset_frankenfruits()
 	randomize()
 
 

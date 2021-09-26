@@ -41,9 +41,12 @@ func _on_FrankenFruitsBase_fruta_creada(nodo_fruta):
 	label.text="+"+str(nodo_fruta.puntuacion)+"\n"+nodo_fruta.nombre
 	self.add_child(label)
 	frutas.append([nodo_fruta,label,OS.get_unix_time()])
-
+	
 	
 	puntuacion=puntuacion+nodo_fruta.puntuacion
+	
+	Utils.set_score(puntuacion)
+	Utils.add_frankenfruit(nodo_fruta)
 	mostrar_puntuacion(puntuacion)	
 
 func mostrar_puntuacion(puntuacion):
