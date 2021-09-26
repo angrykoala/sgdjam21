@@ -12,7 +12,6 @@ var fruit_caught_right=[]
 
 func _ready()->void:
 	left_hand.connect("clap_end", self, "on_clap_end")
-	right_hand.connect("clap_end", self, "on_clap_end")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("clap") and can_clap():
@@ -23,6 +22,7 @@ func can_clap()->bool:
 	return left_hand.can_clap() and right_hand.can_clap()
 
 func on_clap_end() -> void:
+	print("Clap end")
 	var fruit_parts:={}
 	for fruit in fruit_caught_left:
 		add_fruit_part_to_group(fruit, fruit_parts)
@@ -31,10 +31,10 @@ func on_clap_end() -> void:
 		add_fruit_part_to_group(fruit, fruit_parts)
 		fruit.queue_free()
 	print(fruit_parts)
-	
+
 	# frankenfruits_generator.create_frankenfruits(fruit_parts,clap_center.global_transform.origin)
 	frankenfruits_generator.create_frankenfruits(fruit_parts,clap_center)
-	
+
 
 func add_fruit_part_to_group(part: FruitPart, group:Dictionary)->Dictionary:
 	var fruit_name=part.fruit_name
