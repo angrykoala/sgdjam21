@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/fruit_parts/lemon_part.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/fruit_parts/banana_part.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/fruit_parts/apple_part.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/fruit_parts/onion_part.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/fruit_spawner/fruit_spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/background/background.tscn" type="PackedScene" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+current = true
+fov = 50.1628
+
+[node name="FruitSpawner" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.31816, 0 )
+fruits = [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+min_spawn_force = Vector2( -10, 25 )
+max_spawn_force = Vector2( 10, 45 )
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+transform = Transform( 5, 0, 0, 0, -2.62268e-07, -5, 0, 6, -2.18557e-07, 0, 0, -2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.941176 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.8878
+margin_top = -116.5
+margin_right = 77.1122
+margin_bottom = 116.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.0
+margin_top = 56.0
+margin_right = 41.0
+margin_bottom = 76.0
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.0
+margin_top = 106.0
+margin_right = 41.0
+margin_bottom = 126.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 4.0
+margin_right = 48.0
+margin_bottom = 18.0
+text = "FRANKENFRUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
