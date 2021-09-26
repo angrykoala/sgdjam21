@@ -5,7 +5,7 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
-onready var default_position =  $Corners/Center.global_transform.origin
+onready var default_position =  $Table/Corners/Center.global_transform.origin
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

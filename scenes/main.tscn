@@ -14,10 +14,10 @@
 [ext_resource path="res://scenes/FrankenFruitsBase.gd" type="Script" id=12]
 [ext_resource path="res://entities/unioner/OnionerPlus.tscn" type="PackedScene" id=13]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 62.503, 1.81125, 12.5893 )
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 1, 2.90105, 3.05499 )
 
 [node name="Main" type="Spatial"]
@@ -49,21 +49,8 @@ script = ExtResource( 12 )
 
 [node name="OnionerPlus" parent="Player/FrankenFruitsBase" instance=ExtResource( 13 )]
 
-[node name="Corners" type="Spatial" parent="Player/FrankenFruitsBase"]
-
-[node name="Position00" type="Position3D" parent="Player/FrankenFruitsBase/Corners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7343, 2.58587, -8.26176 )
-
-[node name="Center" type="Position3D" parent="Player/FrankenFruitsBase/Corners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94825, 2.58587, 1.99018 )
-
-[node name="Position01" type="Position3D" parent="Player/FrankenFruitsBase/Corners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7343, 2.58587, 9.96961 )
-
-[node name="Position02" type="Position3D" parent="Player/FrankenFruitsBase/Corners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4644, 2.58587, -8.26176 )
-
 [node name="Table" type="StaticBody" parent="Player/FrankenFruitsBase"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.04037, 0 )
 
 [node name="CSGBox" type="CSGBox" parent="Player/FrankenFruitsBase/Table"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.00445, -0.807198 )
@@ -72,7 +59,21 @@ depth = 27.779
 
 [node name="CollisionShape" type="CollisionShape" parent="Player/FrankenFruitsBase/Table"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.09893, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Corners" type="Spatial" parent="Player/FrankenFruitsBase/Table"]
+
+[node name="Position00" type="Position3D" parent="Player/FrankenFruitsBase/Table/Corners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7343, 2.58587, -8.26176 )
+
+[node name="Center" type="Position3D" parent="Player/FrankenFruitsBase/Table/Corners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94825, 2.58587, 1.99018 )
+
+[node name="Position01" type="Position3D" parent="Player/FrankenFruitsBase/Table/Corners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7343, 2.58587, 9.96961 )
+
+[node name="Position02" type="Position3D" parent="Player/FrankenFruitsBase/Table/Corners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4644, 2.58587, -8.26176 )
 
 [node name="LeftHand" parent="Player" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.4 )
@@ -94,8 +95,8 @@ stream = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HandsBounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06153, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="HandsBounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19323, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
