@@ -5,6 +5,8 @@ onready var right_hand=$RightHand
 
 onready var clap_center=$ClapCenter
 
+onready var frankenfruits_generator=$FrankenFruitsBase
+
 var fruit_caught_left=[]
 var fruit_caught_right=[]
 
@@ -29,6 +31,9 @@ func on_clap_end() -> void:
 		add_fruit_part_to_group(fruit, fruit_parts)
 		fruit.queue_free()
 	print(fruit_parts)
+	
+	frankenfruits_generator.create_frankenfruits(fruit_parts)
+	
 
 func add_fruit_part_to_group(part: FruitPart, group:Dictionary)->Dictionary:
 	var fruit_name=part.fruit_name

@@ -1,4 +1,4 @@
-extends Spatial
+extends KinematicBody
 
 var nombre="Frankenfruta"
 var frutas=["Manzana","Limon","Naranja","Cebolla","Platano"]
@@ -38,3 +38,7 @@ func mostrar_frankenfruta(visibles_):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _physics_process(delta):
+	pass
+	#move_and_slide()
