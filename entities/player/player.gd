@@ -22,7 +22,6 @@ func can_clap()->bool:
 	return left_hand.can_clap() and right_hand.can_clap()
 
 func on_clap_end() -> void:
-	print("Clap end")
 	var fruit_parts:={}
 	for fruit in fruit_caught_left:
 		add_fruit_part_to_group(fruit, fruit_parts)
